@@ -10,6 +10,7 @@ namespace LESSON_8__METHODS__RECURSIVE_
     {
         const int theContractSum = 700;
         public int debt = 700;
+       public double res = default(double);
         //---------------------------------------------------------------------------
 
 
@@ -94,6 +95,81 @@ namespace LESSON_8__METHODS__RECURSIVE_
         }
         //---------------------------------------------------------------------------
 
+
+        // Task 4
+
+        public void DivisionByModule(double value1, double value2)
+        {
+            if (value1 == 0 && value2 == 0)
+                return;
+            else
+            {
+                this.res = value1 % value2;
+                Console.WriteLine($"The digit of division by module:\t{this.res}");
+            }
+        
+        }
+        //---------------------------------------------------------------------------
+
+        public void Exponatiation(double value1, double value2)
+        {
+            this.res = Math.Pow(value1, value2);
+            Console.WriteLine($"The result of power of two:\t{this.res}");
+        }
+        //---------------------------------------------------------------------------
+
+        public void Concatenation(double value1, double value2)
+        {
+            string str1 = $"The first value: {value1}";
+            string str2 = $"The second value: {value2}";
+            Console.WriteLine("The result of concatenation:\t" + str1 + str2);
+        }
+        //---------------------------------------------------------------------------
+
+        public void Division(double value1, double value2)
+        {
+            this.res = value1 / value2;
+            Console.WriteLine($"The result of division:\t{this.res}");
+        }
+        //---------------------------------------------------------------------------
+
+        public void ControllerOfAriphmeticOperations()
+        {
+            string str = default(string);
+
+            Console.Write("Enter first value ->");
+            int value1 = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter first value ->");
+            int value2 = int.Parse(Console.ReadLine());
+
+            do
+            {
+                Console.Write("Choose the operation ->\t");
+                str = Console.ReadLine();
+
+                switch (str)
+                {
+                    case "bymodule":
+                        DivisionByModule(value1, value2);
+                        break;
+                    case "exponent":
+                        Exponatiation(value1, value2);
+                        break;
+                    case "concat":
+                        Concatenation(value1, value2);
+                        break;
+                    case "div":
+                        Division(value1, value2);
+                        break;
+                    default:
+                        Console.WriteLine("Try again! Wrong command!");
+                        break;
+                }
+            }  while (str != "exit");  
+        }
+        //---------------------------------------------------------------------------
+
         public static void Main()
         {
             // Additional Task
@@ -122,6 +198,11 @@ namespace LESSON_8__METHODS__RECURSIVE_
             //CountTheWaysOfShipping(ref factorial);
 
             //---------------------------------------------------------
+
+
+            // Task 4
+
+            new Program().ControllerOfAriphmeticOperations();
         }
     }
 }
